@@ -57,18 +57,18 @@
 | CORE-01 | Phase 1 | Pending |
 | CORE-02 | Phase 1 | Pending |
 | CORE-03 | Phase 1 | Pending |
-| CORE-04 | Phase 1 | Pending |
-| CORE-05 | Phase 1 | Pending |
-| CORE-06 | Phase 1 | Pending |
-| CORE-07 | Phase 1 | Pending |
-| CORE-08 | Phase 1 | Pending |
+| CORE-04 | Phase 2 | Pending |
+| CORE-05 | Phase 2 | Pending |
+| CORE-06 | Phase 2 | Pending |
+| CORE-07 | Phase 2 | Pending |
+| CORE-08 | Phase 2 | Pending |
 | UI-01 | Phase 1 | Pending |
-| UI-02 | Phase 1 | Pending |
-| UI-03 | Phase 1 | Pending |
+| UI-02 | Phase 2 | Pending |
+| UI-03 | Phase 2 | Pending |
 | UI-04 | Phase 1 | Pending |
-| TECH-01 | Phase 1 | Pending |
-| TECH-02 | Phase 1 | Pending |
-| TECH-03 | Phase 1 | Pending |
+| TECH-01 | Phase 2 | Pending |
+| TECH-02 | Phase 2 | Pending |
+| TECH-03 | Phase 2 | Pending |
 | TECH-04 | Phase 1 | Pending |
 
 **Coverage:**
@@ -78,4 +78,4 @@
 
 ---
 *Requirements defined: 2025-04-10*
-*Last updated: 2025-04-10 after initial definition*
+*Last updated: 2025-04-10 after roadmap creation*

@@ -27,7 +27,10 @@
 4. Gallery displays clean, light aesthetic using shadcn components
 5. API keys and model configuration are loaded from environment variables
 
-**Plans:** TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 01-01-PLAN.md — Foundation: prompt form, loading states, gallery aesthetic
 
 ---
 
@@ -55,7 +58,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Input | 0/1 | Not started | - |
+| 1. Foundation & Input | 1/1 | Planned | - |
 | 2. Generation & Display | 0/1 | Not started | - |
 
 ---

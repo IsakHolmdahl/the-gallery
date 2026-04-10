@@ -40,14 +40,12 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 - Next.js application with TypeScript
 - shadcn UI components for clean, consistent design
 - Light color scheme evoking gallery/museum spaces
+- OpenAI API for image generation (DALL-E) and script generation (GPT)
 - Eleven Labs API for voice synthesis
-- AI image generation API (Eleven Labs image generation or alternative)
-
-**Important Note:** Eleven Labs is primarily known for voice/TTS. If image generation is needed, may require integration with a separate image generation API (DALL-E, Midjourney API, etc.) unless Eleven Labs has added image capabilities.
 
 ## Constraints
 
-- **API Dependencies**: Requires Eleven Labs API key in `.env`
+- **API Dependencies**: Requires OpenAI API key and Eleven Labs API key in `.env`
 - **Generation Time**: AI image + script + voice can take 15-30 seconds
 - **No Persistence**: All artwork is ephemeral—no storage, no history
 - **Desktop Experience**: Focus on desktop browser experience
@@ -62,6 +60,8 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 | Fancy frame around image | Visual anchor, museum authenticity | — Pending |
 | Formal docent narration | Elevates AI output; museum context | — Pending |
 | shadcn + light theme | Clean, gallery-white aesthetic | — Pending |
+| OpenAI for image + script | DALL-E for image gen, GPT for docent script | — Pending |
+| Eleven Labs for voice | TTS with formal docent voice | — Pending |
 
 ---
 

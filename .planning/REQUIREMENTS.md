@@ -25,10 +25,15 @@
 
 ### Technical
 
-- [ ] **TECH-01**: OpenAI API integration for image generation (DALL-E)
-- [ ] **TECH-02**: OpenAI API integration for script generation (GPT)
+- [ ] **TECH-01**: OpenAI API integration for image generation (model configurable via env var)
+- [ ] **TECH-02**: OpenAI API integration for script generation (GPT model configurable via env var)
 - [ ] **TECH-03**: Eleven Labs API integration for TTS voice generation
-- [ ] **TECH-04**: Environment variable setup for API keys (OPENAI_API_KEY, ELEVEN_LABS_API_KEY)
+- [ ] **TECH-04**: Environment variable setup for API keys and model selection:
+  - `OPENAI_API_KEY` - OpenAI API key
+  - `OPENAI_IMAGE_MODEL` - Model for image generation (e.g., dall-e-3, gpt-image-1)
+  - `OPENAI_SCRIPT_MODEL` - Model for script generation (e.g., gpt-4o, gpt-4o-mini)
+  - `ELEVEN_LABS_API_KEY` - Eleven Labs API key
+  - `ELEVEN_LABS_VOICE_ID` - Voice ID for docent narration
 
 ## v2 Requirements
 

@@ -46,6 +46,7 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 ## Constraints
 
 - **API Dependencies**: Requires OpenAI API key and Eleven Labs API key in `.env`
+- **Model Configuration**: OpenAI image and script models configurable via env vars (flexibility as models evolve)
 - **Generation Time**: AI image + script + voice can take 15-30 seconds
 - **No Persistence**: All artwork is ephemeral—no storage, no history
 - **Desktop Experience**: Focus on desktop browser experience
@@ -60,7 +61,7 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 | Fancy frame around image | Visual anchor, museum authenticity | — Pending |
 | Formal docent narration | Elevates AI output; museum context | — Pending |
 | shadcn + light theme | Clean, gallery-white aesthetic | — Pending |
-| OpenAI for image + script | DALL-E for image gen, GPT for docent script | — Pending |
+| OpenAI for image + script | Configurable models via env vars | — Pending |
 | Eleven Labs for voice | TTS with formal docent voice | — Pending |
 
 ---

@@ -30,7 +30,7 @@
 **Plans:** 1 plan
 
 Plans:
-- [ ] 01-01-PLAN.md — Foundation: prompt form, loading states, gallery aesthetic
+- [x] 01-01-PLAN.md — Foundation: prompt form, loading states, gallery aesthetic
 
 ---
 

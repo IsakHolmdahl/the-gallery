@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "read": {
+      "/Users/isakholmdahl/Git/art-teacher/.opencode/get-shit-done/*": "allow"
+    },
+    "external_directory": {
+      "/Users/isakholmdahl/Git/art-teacher/.opencode/get-shit-done/*": "allow"
+    }
+  }
+}

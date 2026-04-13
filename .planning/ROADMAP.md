@@ -23,7 +23,7 @@
 **Success Criteria** (what must be TRUE):
 1. Visitor can type a text prompt describing desired artwork
 2. "Create Art" button is visually disabled until prompt field has content
-3. Loading animation displays with formal museum-style messages (e.g., "Creation in Progress, Perfection Pending")
+3. Loading animation displays with formal museum-style messages (e.g., "Creation in Progress, Perfection Pending, Paint drying...") while AI generates artwork
 4. Gallery displays clean, light aesthetic using shadcn components
 5. API keys and model configuration are loaded from environment variables
 
@@ -43,7 +43,7 @@ Plans:
 **Requirements:** CORE-04, CORE-05, CORE-06, CORE-07, CORE-08, UI-02, UI-03, TECH-01, TECH-02, TECH-03
 
 **Success Criteria** (what must be TRUE):
-1. OpenAI DALL-E generates an image based on the visitor's prompt
+1. OpenAI GPT-Image generates an image based on the visitor's prompt
 2. OpenAI GPT generates a formal museum docent script explaining the artwork
 3. Eleven Labs TTS converts the script to voice narration
 4. Generated image appears in an elegant decorative frame

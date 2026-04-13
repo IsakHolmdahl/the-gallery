@@ -10,7 +10,7 @@
 - [ ] **CORE-01**: Visitor can enter a text prompt describing desired artwork
 - [ ] **CORE-02**: "Create Art" button is disabled until prompt field has content
 - [ ] **CORE-03**: Loading animation displays during generation with formal museum-style messages
-- [ ] **CORE-04**: OpenAI DALL-E generates an image based on the prompt
+- [ ] **CORE-04**: OpenAI GPT-Image generates an image based on the prompt
 - [ ] **CORE-05**: OpenAI GPT generates a museum docent voiceover script explaining the artwork
 - [ ] **CORE-06**: Eleven Labs TTS converts the script to voice narration
 - [ ] **CORE-07**: AI-generated image appears in an elegant frame upon completion
@@ -21,7 +21,7 @@
 - [ ] **UI-01**: Clean, light gallery aesthetic using shadcn components
 - [ ] **UI-02**: Fancy decorative frame around generated image
 - [ ] **UI-03**: Error states display friendly message with retry option
-- [ ] **UI-04**: Loading messages maintain formal museum tone ("Creation in Progress, Perfection Pending")
+- [ ] **UI-04**: Loading messages maintain formal museum tone ("Creation in Progress, Perfection Pending, Paint drying...")
 
 ### Technical
 

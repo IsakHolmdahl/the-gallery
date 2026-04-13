@@ -24,9 +24,9 @@ export function LoadingState() {
   }, [])
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-4 py-12">
-      <Spinner className="h-12 w-12 text-muted-foreground" />
-      <p className="text-lg font-medium text-muted-foreground text-center">
+    <div className="flex flex-col items-center justify-center py-8 space-y-4">
+      <Spinner className="h-10 w-10 text-stone-400" />
+      <p className="text-sm text-stone-500 text-center italic tracking-wide">
         {message}
       </p>
     </div>

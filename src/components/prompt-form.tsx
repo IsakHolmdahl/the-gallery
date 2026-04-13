@@ -33,27 +33,48 @@ export function PromptForm() {
   }, [pending])
 
   return (
-    <form action={formAction} className="w-full max-w-md space-y-4">
-      <Textarea
-        name="prompt"
-        placeholder="Describe the artwork you wish to create..."
-        className="min-h-[120px] resize-none"
-        disabled={pending}
-        value={prompt}
-        onChange={(e) => setPrompt(e.target.value)}
-      />
-      <Button type="submit" disabled={pending || isEmpty} className="w-full">
-        {pending ? <Spinner className="mr-2 h-4 w-4" /> : null}
-        {pending ? 'Creation in Progress...' : 'Create Art'}
+    <div className="space-y-6">
+      {/* Elegant textarea */}
+      <div className="space-y-2">
+        <label htmlFor="prompt" className="sr-only">
+          Describe your artwork
+        </label>
+        <Textarea
+          id="prompt"
+          name="prompt"
+          placeholder="Describe the artwork you wish to create..."
+          className="min-h-[140px] resize-none bg-transparent border-stone-300 text-stone-800 placeholder:text-stone-400 focus:border-stone-500 focus:ring-stone-500/20 rounded-xl py-4 px-4 text-base leading-relaxed"
+          disabled={pending}
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+        />
+      </div>
+
+      {/* Elegant submit button */}
+      <Button 
+        type="submit" 
+        disabled={pending || isEmpty} 
+        className="w-full h-12 bg-stone-900 hover:bg-stone-800 text-white font-medium tracking-wide rounded-xl transition-all duration-200 disabled:bg-stone-200 disabled:text-stone-500"
+      >
+        {pending ? (
+          <>
+            <Spinner className="mr-3 h-4 w-4" />
+            <span>Creation in Progress...</span>
+          </>
+        ) : (
+          <span>Create Art</span>
+        )}
       </Button>
+
+      {/* Loading state with museum messages */}
       {pending && (
-        <div className="flex flex-col items-center justify-center space-y-4 py-8">
-          <Spinner className="h-12 w-12 text-muted-foreground" />
-          <p className="text-lg font-medium text-muted-foreground text-center">
+        <div className="flex flex-col items-center justify-center py-8 space-y-4">
+          <Spinner className="h-10 w-10 text-stone-400" />
+          <p className="text-sm text-stone-500 text-center italic tracking-wide">
             {MUSEUM_MESSAGES[messageIndex]}
           </p>
         </div>
       )}
-    </form>
+    </div>
   )
 }

@@ -2,11 +2,11 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Polish & Refinements
-current_phase: null
-status: defining_requirements
+current_phase: 3
+status: ready
 last_updated: "2026-04-13T12:00:00.000Z"
 progress:
-  total_phases: 0
+  total_phases: 2
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -25,10 +25,14 @@ progress:
 
 ## Current Position
 
-Phase: Not started (defining requirements)
+Phase: 3 (Gallery Display & Stability)
 Plan: —
-Status: Defining requirements
-Last activity: 2026-04-13 — Milestone v1.1 started
+Status: Ready to plan
+Last activity: 2026-04-13 — v1.1 roadmap created
+
+## Performance Metrics
+
+- v1.0: 2 phases, 16/16 requirements, shipped 2026-04-13
 
 ## Accumulated Context
 
@@ -50,6 +54,12 @@ Last activity: 2026-04-13 — Milestone v1.1 started
 - OpenAI API (DALL-E for images, GPT for scripts)
 - Eleven Labs API (TTS)
 - Configurable via env vars
+
+### v1.1 Scope
+
+2 phases, 7 requirements:
+- Phase 3: BUG-01, DISP-01, DISP-02 (display + stability)
+- Phase 4: AUD-01, AUD-02, AUD-03, AUD-04 (audio experience)
 
 ---
 

@@ -56,12 +56,13 @@ blocked: 0
 
 - truth: "App loads without errors and allows artwork generation"
   status: failed
-  reason: "Error: 400 The model 'gpt-image-1.5-2025-12-16' does not exist"
+  reason: "Multiple API compatibility issues: (1) image model returns base64 not URL, (2) script model requires max_completion_tokens not max_tokens"
   severity: blocker
   test: 1
-  root_cause: "OPENAI_IMAGE_MODEL=gpt-image-1.5 is not a valid OpenAI model. User needs to configure valid model names in .env."
+  root_cause: "Newer OpenAI models (gpt-image-1.5, gpt-5.x) have different API parameters than legacy models (dall-e-3, gpt-4)"
   artifacts:
-    - path: ".env"
-      issue: "OPENAI_IMAGE_MODEL=gpt-image-1.5 does not exist"
+    - path: "src/app/actions.ts"
+      issue: "Used max_tokens instead of max_completion_tokens; didn't handle base64 image responses"
   missing:
-    - "User must set OPENAI_IMAGE_MODEL=dall-e-3 (or dall-e-2) in .env"
+    - "Handle both URL and base64 image responses"
+    - "Use max_completion_tokens for newer script models"

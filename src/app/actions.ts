@@ -37,16 +37,19 @@ export async function createArt(
     }
 
     // Step 1: Generate image (sequential - first)
-    console.log('Generating image with model:', env.OPENAI_IMAGE_MODEL);
     const imageResponse = await openai.images.generate({ 
       model: env.OPENAI_IMAGE_MODEL, 
       prompt, 
       n: 1, 
-      size: '1024x1024' 
+      size: '1024x1024'
     });
-    console.log('Image response:', JSON.stringify(imageResponse, null, 2));
-    const imageUrl = imageResponse.data?.[0]?.url;
-    console.log('Image URL:', imageUrl);
+    
+    // Handle both URL and base64 response formats
+    const imageData = imageResponse.data?.[0];
+    if (!imageData) {
+      return { success: false, error: 'Failed to generate image. No image data returned.' };
+    }
+    const imageUrl = imageData.url || `data:image/png;base64,${imageData.b64_json}`;
     
     if (!imageUrl) {
       return { success: false, error: 'Failed to generate image. Please try again.' };
@@ -59,7 +62,7 @@ export async function createArt(
         { role: 'system', content: DOCENT_SYSTEM_PROMPT },
         { role: 'user', content: `Describe this artwork: ${prompt}` }
       ],
-      max_tokens: 500,
+      max_completion_tokens: 500,
     });
     const script = scriptResponse.choices[0].message.content;
     

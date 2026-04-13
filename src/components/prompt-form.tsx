@@ -33,7 +33,7 @@ export function PromptForm() {
   }, [pending])
 
   return (
-    <div className="space-y-6">
+    <form action={formAction} className="space-y-6">
       {/* Elegant textarea */}
       <div className="space-y-2">
         <label htmlFor="prompt" className="sr-only">
@@ -75,6 +75,6 @@ export function PromptForm() {
           </p>
         </div>
       )}
-    </div>
+    </form>
   )
 }

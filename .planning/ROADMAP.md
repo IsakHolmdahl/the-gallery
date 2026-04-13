@@ -53,7 +53,7 @@ Plans:
 **Plans:** 1 plan
 
 Plans:
-- [ ] 02-01-PLAN.md — Generation pipeline (image → script → voice), art display, error handling
+- [x] 02-01-PLAN.md — Generation pipeline (image + script parallel → voice), autoplay fallback, framed display, error handling
 
 ---
 

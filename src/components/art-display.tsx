@@ -13,8 +13,12 @@ interface ArtDisplayProps {
 export function ArtDisplay({ imageUrl, audioBase64, script, onReset }: ArtDisplayProps) {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [showPlayButton, setShowPlayButton] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
+    // Trigger fade-in animation after mount
+    requestAnimationFrame(() => setIsVisible(true))
+    
     if (audioRef.current) {
       audioRef.current.play()
         .then(() => setShowPlayButton(false))
@@ -32,7 +36,10 @@ export function ArtDisplay({ imageUrl, audioBase64, script, onReset }: ArtDispla
   }
 
   return (
-    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
+    <div 
+      className="space-y-6 transition-all duration-700 ease-out"
+      style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(16px)' }}
+    >
       {/* Gold museum frame */}
       <div className="relative p-6 bg-gradient-to-b from-amber-100 to-amber-50 rounded-lg shadow-2xl">
         {/* Inner mat (white border) */}

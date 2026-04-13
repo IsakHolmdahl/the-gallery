@@ -21,9 +21,28 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 - ✓ Clean, light gallery aesthetic with shadcn components — v1.0
 - ✓ Error states display friendly message allowing retry — v1.0
 
+### Current Milestone: v1.1 Polish & Refinements
+
+**Goal:** Refine the gallery experience with landscape display, background music, and fix a crash bug on repeat generations.
+
+**Target features:**
+- Frame & image in 16:9 landscape aspect ratio
+- Larger artwork display (size configurable via `ARTWORK_SIZE` env var)
+- Background music (`background_music.mp3`) plays on artwork reveal
+- Music loops with 1-second fade in
+- Music fades out (1s) when "Create Another" is pressed
+- Mute button appears in bottom corner while music plays
+- Fix: crash on second image generation (1MB body limit error)
+
 ### Active
 
-- [ ] (New requirements for next milestone — define via /gsd-new-milestone)
+- [ ] Artwork frame displays in 16:9 landscape aspect ratio
+- [ ] Artwork display size is larger and configurable via environment variable
+- [ ] Background music plays and loops when artwork is revealed
+- [ ] Background music fades in over 1 second on artwork reveal
+- [ ] Background music fades out over 1 second when "Create Another" is pressed
+- [ ] Mute button appears in bottom corner while music is playing
+- [ ] Second image generation no longer crashes (1MB body limit fixed)
 
 ### Out of Scope
 
@@ -67,6 +86,23 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 | Eleven Labs for voice | TTS with formal docent voice | ✓ Shipped v1.0 |
 | Sequential pipeline | Script describes actual generated image | ✓ Shipped v1.0 |
 
+## Evolution
+
+This document evolves at phase transitions and milestone boundaries.
+
+**After each phase transition** (via `/gsd-transition`):
+1. Requirements invalidated? → Move to Out of Scope with reason
+2. Requirements validated? → Move to Validated with phase reference
+3. New requirements emerged? → Add to Active
+4. Decisions to log? → Add to Key Decisions
+5. "What This Is" still accurate? → Update if drifted
+
+**After each milestone** (via `/gsd-complete-milestone`):
+1. Full review of all sections
+2. Core Value check — still the right priority?
+3. Audit Out of Scope — reasons still valid?
+4. Update Context with current state
+
 ---
 
-*Last updated: 2026-04-13 after v1.0 milestone completion*
+*Last updated: 2026-04-13 — v1.1 milestone started (Polish & Refinements)*

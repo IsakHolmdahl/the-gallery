@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import { Spinner } from '@/components/spinner'
 import { createArt } from '@/app/actions'
+import { ArtDisplay } from './art-display'
 
 const MUSEUM_MESSAGES = [
   'Creation in Progress, Perfection Pending',
@@ -32,6 +33,24 @@ export function PromptForm() {
     return () => clearInterval(interval)
   }, [pending])
 
+  // Handle successful result
+  const result = state?.success && state?.imageUrl && state?.audioBase64 && state?.script
+    ? { imageUrl: state.imageUrl, audioBase64: state.audioBase64, script: state.script }
+    : null
+
+  if (result) {
+    return (
+      <ArtDisplay
+        imageUrl={result.imageUrl}
+        audioBase64={result.audioBase64}
+        script={result.script}
+        onReset={() => {
+          setPrompt('')
+        }}
+      />
+    )
+  }
+
   return (
     <form action={formAction} className="space-y-6">
       {/* Elegant textarea */}
@@ -49,6 +68,23 @@ export function PromptForm() {
           onChange={(e) => setPrompt(e.target.value)}
         />
       </div>
+
+      {/* Error message */}
+      {state?.error && (
+        <div className="flex flex-col items-center justify-center py-4 space-y-3">
+          <p className="text-sm text-red-600 text-center">{state.error}</p>
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => {
+              setPrompt('')
+            }}
+            className="w-full"
+          >
+            Try Again
+          </Button>
+        </div>
+      )}
 
       {/* Elegant submit button */}
       <Button 

@@ -19,6 +19,7 @@ export function PromptForm() {
   const [state, formAction, pending] = useActionState(createArt, null)
   const [prompt, setPrompt] = useState('')
   const [messageIndex, setMessageIndex] = useState(0)
+  const [showResult, setShowResult] = useState(false)
 
   const isEmpty = prompt.trim().length === 0
 
@@ -34,8 +35,15 @@ export function PromptForm() {
     return () => clearInterval(interval)
   }, [pending])
 
+  // Show result when success state arrives
+  useEffect(() => {
+    if (state?.success && state?.imageUrl && state?.audioBase64 && state?.script) {
+      setShowResult(true)
+    }
+  }, [state])
+
   // Handle successful result
-  const result = state?.success && state?.imageUrl && state?.audioBase64 && state?.script
+  const result = showResult && state?.success && state?.imageUrl && state?.audioBase64 && state?.script
     ? { imageUrl: state.imageUrl, audioBase64: state.audioBase64, script: state.script }
     : null
 
@@ -46,6 +54,7 @@ export function PromptForm() {
         audioBase64={result.audioBase64}
         script={result.script}
         onReset={() => {
+          setShowResult(false)
           setFormKey(prev => prev + 1)
         }}
       />

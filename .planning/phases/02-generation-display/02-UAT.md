@@ -8,12 +8,12 @@ updated: 2026-04-13T13:20:00Z
 
 ## Current Test
 
-number: 2
-name: Error State and Retry
+number: 3
+name: Create Another Artwork
 expected: |
-  When an API error occurs (e.g., invalid API key, network failure),
-  a friendly error message displays below the form and a "Try Again"
-  button allows the user to retry without page reload.
+  After viewing a generated artwork, clicking "Create Another" clears
+  the display and returns to the empty prompt form, ready for a new
+  artwork creation.
 awaiting: user response
 
 ## Tests
@@ -31,7 +31,8 @@ expected: |
   When an API error occurs (e.g., invalid API key, network failure),
   a friendly error message displays below the form and a "Try Again"
   button allows the user to retry without page reload.
-result: [pending]
+result: pass
+note: "Removed redundant Try Again button - Create Art button is enough"
 
 ### 3. Create Another Artwork
 expected: |
@@ -43,7 +44,7 @@ result: [pending]
 ## Summary
 
 total: 3
-passed: 1
+passed: 2
 issues: 1
 pending: 1
 skipped: 0

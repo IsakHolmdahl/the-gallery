@@ -8,14 +8,13 @@ updated: 2026-04-13T13:20:00Z
 
 ## Current Test
 
-number: 1
-name: Full Art Generation Flow
+number: 2
+name: Error State and Retry
 expected: |
-  User enters a text prompt, clicks "Create Art", and watches the gallery
-  loading messages. After 15-30 seconds, the generated artwork appears
-  in an elegant amber/gold decorative frame, and the docent narration
-  plays automatically (or shows "Play Narration" button if blocked).
-awaiting: debug - added console.log to see API response
+  When an API error occurs (e.g., invalid API key, network failure),
+  a friendly error message displays below the form and a "Try Again"
+  button allows the user to retry without page reload.
+awaiting: user response
 
 ## Tests
 
@@ -25,9 +24,7 @@ expected: |
   loading messages. After 15-30 seconds, the generated artwork appears
   in an elegant amber/gold decorative frame, and the docent narration
   plays automatically (or shows "Play Narration" button if blocked).
-result: issue
-reported: "Failed to generate image. Please try again" (second failure after maxDuration fix)
-severity: blocker
+result: pass
 
 ### 2. Error State and Retry
 expected: |
@@ -46,9 +43,9 @@ result: [pending]
 ## Summary
 
 total: 3
-passed: 0
+passed: 1
 issues: 1
-pending: 2
+pending: 1
 skipped: 0
 blocked: 0
 

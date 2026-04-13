@@ -72,19 +72,7 @@ export function PromptForm() {
 
       {/* Error message */}
       {state?.error && (
-        <div className="flex flex-col items-center justify-center py-4 space-y-3">
-          <p className="text-sm text-red-600 text-center">{state.error}</p>
-          <Button
-            type="button"
-            variant="outline"
-            onClick={() => {
-              setPrompt('')
-            }}
-            className="w-full"
-          >
-            Try Again
-          </Button>
-        </div>
+        <p className="text-sm text-red-600 text-center">{state.error}</p>
       )}
 
       {/* Elegant submit button */}

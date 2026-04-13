@@ -15,6 +15,7 @@ const MUSEUM_MESSAGES = [
 ]
 
 export function PromptForm() {
+  const [formKey, setFormKey] = useState(0)
   const [state, formAction, pending] = useActionState(createArt, null)
   const [prompt, setPrompt] = useState('')
   const [messageIndex, setMessageIndex] = useState(0)
@@ -45,14 +46,14 @@ export function PromptForm() {
         audioBase64={result.audioBase64}
         script={result.script}
         onReset={() => {
-          setPrompt('')
+          setFormKey(prev => prev + 1)
         }}
       />
     )
   }
 
   return (
-    <form action={formAction} className="space-y-6">
+    <form key={formKey} action={formAction} className="space-y-6">
       {/* Elegant textarea */}
       <div className="space-y-2">
         <label htmlFor="prompt" className="sr-only">

@@ -37,13 +37,16 @@ export async function createArt(
     }
 
     // Step 1: Generate image (sequential - first)
+    console.log('Generating image with model:', env.OPENAI_IMAGE_MODEL);
     const imageResponse = await openai.images.generate({ 
       model: env.OPENAI_IMAGE_MODEL, 
       prompt, 
       n: 1, 
       size: '1024x1024' 
     });
+    console.log('Image response:', JSON.stringify(imageResponse, null, 2));
     const imageUrl = imageResponse.data?.[0]?.url;
+    console.log('Image URL:', imageUrl);
     
     if (!imageUrl) {
       return { success: false, error: 'Failed to generate image. Please try again.' };

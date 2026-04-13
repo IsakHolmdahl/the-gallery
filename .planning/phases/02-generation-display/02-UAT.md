@@ -15,7 +15,7 @@ expected: |
   loading messages. After 15-30 seconds, the generated artwork appears
   in an elegant amber/gold decorative frame, and the docent narration
   plays automatically (or shows "Play Narration" button if blocked).
-awaiting: fix applied, re-test
+awaiting: debug - added console.log to see API response
 
 ## Tests
 

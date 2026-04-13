@@ -50,7 +50,10 @@ Plans:
 5. Voice narration plays automatically when artwork is revealed
 6. Error states display friendly message with retry option
 
-**Plans:** TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 02-01-PLAN.md — Generation pipeline (image → script → voice), art display, error handling
 
 ---
 
@@ -59,7 +62,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Input | 1/1 | Planned | - |
-| 2. Generation & Display | 0/1 | Not started | - |
+| 2. Generation & Display | 0/1 | Planned | - |
 
 ---
 

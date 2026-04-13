@@ -5,8 +5,6 @@ import { ElevenLabsClient } from '@elevenlabs/elevenlabs-js';
 import { env } from '@/lib/env';
 import { maxDuration } from './config';
 
-export { maxDuration };
-
 const openai = new OpenAI({ apiKey: env.OPENAI_API_KEY });
 const elevenlabs = new ElevenLabsClient({ apiKey: env.ELEVEN_LABS_API_KEY });
 

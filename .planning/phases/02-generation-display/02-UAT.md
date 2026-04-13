@@ -26,7 +26,7 @@ expected: |
   in an elegant amber/gold decorative frame, and the docent narration
   plays automatically (or shows "Play Narration" button if blocked).
 result: issue
-reported: "App crashes on submit - error: 'A use server file can only export async functions, found number'"
+reported: "Failed to generate image. Please try again" (second failure after maxDuration fix)
 severity: blocker
 
 ### 2. Error State and Retry
@@ -56,12 +56,12 @@ blocked: 0
 
 - truth: "App loads without errors and allows artwork generation"
   status: failed
-  reason: "User reported: App crashes on submit - error: 'A use server file can only export async functions, found number'"
+  reason: "Error: 400 The model 'gpt-image-1.5-2025-12-16' does not exist"
   severity: blocker
   test: 1
-  root_cause: "actions.ts re-exports `maxDuration` (a number) but has 'use server' directive which only allows async function exports"
+  root_cause: "OPENAI_IMAGE_MODEL=gpt-image-1.5 is not a valid OpenAI model. User needs to configure valid model names in .env."
   artifacts:
-    - path: "src/app/actions.ts"
-      issue: "export { maxDuration } breaks use server constraint"
+    - path: ".env"
+      issue: "OPENAI_IMAGE_MODEL=gpt-image-1.5 does not exist"
   missing:
-    - "Remove re-export of maxDuration from server actions file"
+    - "User must set OPENAI_IMAGE_MODEL=dall-e-3 (or dall-e-2) in .env"

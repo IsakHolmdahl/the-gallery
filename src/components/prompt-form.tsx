@@ -1,6 +1,6 @@
 'use client'
 
-import { useActionState, useState, useEffect } from 'react'
+import { useState, useEffect, useTransition } from 'react'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import { Spinner } from '@/components/spinner'
@@ -16,12 +16,24 @@ const MUSEUM_MESSAGES = [
 
 export function PromptForm() {
   const [formKey, setFormKey] = useState(0)
-  const [state, formAction, pending] = useActionState(createArt, null)
+  const [state, setState] = useState<{ success: boolean; error?: string; imageUrl?: string; audioBase64?: string; script?: string } | null>(null)
+  const [pending, startTransition] = useTransition()
   const [prompt, setPrompt] = useState('')
   const [messageIndex, setMessageIndex] = useState(0)
   const [showResult, setShowResult] = useState(false)
 
   const isEmpty = prompt.trim().length === 0
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget)
+    setState(null)
+    setShowResult(false)
+    startTransition(async () => {
+      const result = await createArt(formData)
+      setState(result)
+    })
+  }
 
   // Rotate museum messages every 3 seconds when pending
   useEffect(() => {
@@ -54,6 +66,7 @@ export function PromptForm() {
         audioBase64={result.audioBase64}
         script={result.script}
         onReset={() => {
+          setState(null)
           setShowResult(false)
           setFormKey(prev => prev + 1)
         }}
@@ -62,7 +75,7 @@ export function PromptForm() {
   }
 
   return (
-    <form key={formKey} action={formAction} className="space-y-6">
+    <form key={formKey} onSubmit={handleSubmit} className="space-y-6">
       {/* Elegant textarea */}
       <div className="space-y-2">
         <label htmlFor="prompt" className="sr-only">

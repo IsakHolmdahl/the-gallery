@@ -26,7 +26,7 @@
 **Plans**: 1 plan
 
 Plans:
-- [ ] 03-01-PLAN.md — Fix crash bug, upgrade to landscape 16:9 frame with configurable sizing
+- [x] 03-01-PLAN.md — Fix crash bug, upgrade to landscape 16:9 frame with configurable sizing
 
 **UI hint**: yes
 

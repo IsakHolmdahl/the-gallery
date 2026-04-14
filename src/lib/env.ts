@@ -6,6 +6,7 @@ export const envSchema = z.object({
   OPENAI_SCRIPT_MODEL: z.string().default('gpt-4o'),
   ELEVEN_LABS_API_KEY: z.string().min(1, 'ELEVEN_LABS_API_KEY is required'),
   ELEVEN_LABS_VOICE_ID: z.string().default('azo'),
+  ARTWORK_SIZE: z.coerce.number().default(70),
 })
 
 // Parse and validate at startup — throws if invalid

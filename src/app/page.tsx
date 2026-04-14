@@ -1,4 +1,5 @@
 import { PromptForm } from '@/components/prompt-form'
+import { env } from '@/lib/env'
 
 function Page() {
   return (
@@ -20,7 +21,7 @@ function Page() {
           {/* Inner frame line for gallery feel */}
           <div className="absolute inset-2 rounded-xl border border-stone-300/40 pointer-events-none" />
           
-          <PromptForm />
+          <PromptForm artworkSize={env.ARTWORK_SIZE} />
         </div>
       </div>
 

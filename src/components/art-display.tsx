@@ -2,16 +2,16 @@
 
 import { useRef, useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { env } from '@/lib/env'
 
 interface ArtDisplayProps {
   imageUrl: string
   audioBase64: string
   script: string
+  artworkSize?: number
   onReset: () => void
 }
 
-export function ArtDisplay({ imageUrl, audioBase64, script, onReset }: ArtDisplayProps) {
+export function ArtDisplay({ imageUrl, audioBase64, script, artworkSize = 70, onReset }: ArtDisplayProps) {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [showPlayButton, setShowPlayButton] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
@@ -42,7 +42,7 @@ export function ArtDisplay({ imageUrl, audioBase64, script, onReset }: ArtDispla
       style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(16px)' }}
     >
       {/* Gold museum frame */}
-      <div className="relative p-6 bg-gradient-to-b from-amber-100 to-amber-50 rounded-lg shadow-2xl mx-auto" style={{ width: `${env.ARTWORK_SIZE ?? 70}vw` }}>
+      <div className="relative p-6 bg-gradient-to-b from-amber-100 to-amber-50 rounded-lg shadow-2xl mx-auto" style={{ width: `${artworkSize}vw` }}>
         {/* Inner mat (white border) */}
         <div className="p-3 bg-white rounded shadow-inner overflow-hidden">
           <img 

@@ -14,7 +14,11 @@ const MUSEUM_MESSAGES = [
   'Curating Beauty, A Brief Interlude',
 ]
 
-export function PromptForm() {
+interface PromptFormProps {
+  artworkSize?: number
+}
+
+export function PromptForm({ artworkSize = 70 }: PromptFormProps) {
   const [formKey, setFormKey] = useState(0)
   const [state, setState] = useState<{ success: boolean; error?: string; imageUrl?: string; audioBase64?: string; script?: string } | null>(null)
   const [pending, startTransition] = useTransition()
@@ -65,6 +69,7 @@ export function PromptForm() {
         imageUrl={result.imageUrl}
         audioBase64={result.audioBase64}
         script={result.script}
+        artworkSize={artworkSize}
         onReset={() => {
           setState(null)
           setShowResult(false)

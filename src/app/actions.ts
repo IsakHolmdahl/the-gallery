@@ -52,7 +52,7 @@ export async function createArt(
       model: env.OPENAI_IMAGE_MODEL,
       prompt,
       n: 1,
-      size: "1792x1024",
+      size: "1536x1024",
     });
 
     // Handle both URL and base64 response formats

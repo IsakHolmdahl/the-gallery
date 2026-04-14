@@ -23,7 +23,11 @@
   2. Artwork frame displays in 16:9 landscape aspect ratio
   3. Artwork display is noticeably larger and fills more of the viewport
   4. Artwork size is configurable via `ARTWORK_SIZE` environment variable
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 03-01-PLAN.md — Fix crash bug, upgrade to landscape 16:9 frame with configurable sizing
+
 **UI hint**: yes
 
 ### Phase 4: Audio Experience
@@ -43,7 +47,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 3. Gallery Display & Stability | 0/0 | Not started | - |
+| 3. Gallery Display & Stability | 0/1 | Ready to execute | - |
 | 4. Audio Experience | 0/0 | Not started | - |
 
 ---

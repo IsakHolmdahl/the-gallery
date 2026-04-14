@@ -38,7 +38,7 @@ export function ArtDisplay({ imageUrl, audioBase64, script, artworkSize = 70, on
 
   return (
     <div 
-      className="space-y-6 transition-all duration-700 ease-out"
+      className="flex flex-col items-center space-y-6 transition-all duration-700 ease-out"
       style={{ opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(16px)' }}
     >
       {/* Gold museum frame */}

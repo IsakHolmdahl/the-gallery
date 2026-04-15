@@ -16,9 +16,10 @@ const MUSEUM_MESSAGES = [
 
 interface PromptFormProps {
   artworkSize?: number
+  onArtworkStateChange?: (isShowing: boolean) => void
 }
 
-export function PromptForm({ artworkSize = 70 }: PromptFormProps) {
+export function PromptForm({ artworkSize = 70, onArtworkStateChange }: PromptFormProps) {
   const [formKey, setFormKey] = useState(0)
   const [state, setState] = useState<{ success: boolean; error?: string; imageUrl?: string; audioBase64?: string; script?: string } | null>(null)
   const [pending, startTransition] = useTransition()
@@ -55,8 +56,9 @@ export function PromptForm({ artworkSize = 70 }: PromptFormProps) {
   useEffect(() => {
     if (state?.success && state?.imageUrl && state?.audioBase64 && state?.script) {
       setShowResult(true)
+      onArtworkStateChange?.(true)
     }
-  }, [state])
+  }, [state, onArtworkStateChange])
 
   // Handle successful result
   const result = showResult && state?.success && state?.imageUrl && state?.audioBase64 && state?.script
@@ -74,6 +76,7 @@ export function PromptForm({ artworkSize = 70 }: PromptFormProps) {
           setState(null)
           setShowResult(false)
           setFormKey(prev => prev + 1)
+          onArtworkStateChange?.(false)
         }}
       />
     )

@@ -37,7 +37,7 @@ export function GalleryContent({ artworkSize }: GalleryContentProps) {
       </header>
 
       {/* Gallery-style presentation for the form */}
-      <div className={`w-full ${isArtworkShowing ? '' : 'max-w-xl'}`}>
+      <div className={`${isArtworkShowing ? "w-fit" : "w-full max-w-xl"}`}>
         {/* Elegant frame/border treatment */}
         <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl shadow-stone-200/50 border border-stone-200/60 p-8 md:p-10">
           {/* Inner frame line for gallery feel */}

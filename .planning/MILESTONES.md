@@ -1,11 +1,22 @@
 # Milestones: Art Gallery
 
+## v1.1 Polish & Refinements (Shipped: 2026-04-15)
+
+**Phases completed:** 2 phases, 2 plans, 3 tasks
+
+**Key accomplishments:**
+
+- Fixed crash-on-second-generation by replacing useActionState with useState+useTransition, upgraded to 16:9 landscape artwork frame with configurable viewport width via ARTWORK_SIZE env var
+
+---
+
 ## v1.0 Art Gallery
 
 **Status:** ✅ SHIPPED 2026-04-13
 **Phases:** 2 | **Plans:** 2 | **Requirements:** 16/16 complete
 
 **Delivered:**
+
 - Gallery page with elegant museum-quality visual design
 - Sequential AI generation pipeline (image → script → voice)
 - OpenAI image + script generation, ElevenLabs TTS

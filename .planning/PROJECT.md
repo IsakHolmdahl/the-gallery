@@ -10,7 +10,9 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 
 ## Requirements
 
-### Validated (v1.0)
+### Validated
+
+#### v1.0
 
 - ✓ Visitor can enter a text prompt describing desired artwork — v1.0
 - ✓ "Create Art" button activates only when prompt field has content — v1.0
@@ -21,28 +23,19 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 - ✓ Clean, light gallery aesthetic with shadcn components — v1.0
 - ✓ Error states display friendly message allowing retry — v1.0
 
-### Current Milestone: v1.1 Polish & Refinements
+#### v1.1 Polish & Refinements
 
-**Goal:** Refine the gallery experience with landscape display, background music, and fix a crash bug on repeat generations.
-
-**Target features:**
-- Frame & image in 16:9 landscape aspect ratio
-- Larger artwork display (size configurable via `ARTWORK_SIZE` env var)
-- Background music (`background_music.mp3`) plays on artwork reveal
-- Music loops with 1-second fade in
-- Music fades out (1s) when "Create Another" is pressed
-- Mute button appears in bottom corner while music plays
-- Fix: crash on second image generation (1MB body limit error)
+- ✓ Artwork frame displays in 16:9 landscape aspect ratio — v1.1
+- ✓ Artwork display size is larger and configurable via `ARTWORK_SIZE` env var — v1.1
+- ✓ Background music (`background_music.mp3`) plays and loops when artwork is revealed — v1.1
+- ✓ Background music fades in over 1 second on artwork reveal — v1.1
+- ✓ Background music fades out over 1 second when "Create Another" is pressed — v1.1
+- ✓ Mute button appears in bottom corner while music is playing — v1.1
+- ✓ Second image generation no longer crashes (1MB body limit fixed) — v1.1
 
 ### Active
 
-- [ ] Artwork frame displays in 16:9 landscape aspect ratio
-- [ ] Artwork display size is larger and configurable via environment variable
-- [ ] Background music plays and loops when artwork is revealed
-- [ ] Background music fades in over 1 second on artwork reveal
-- [ ] Background music fades out over 1 second when "Create Another" is pressed
-- [ ] Mute button appears in bottom corner while music is playing
-- [ ] Second image generation no longer crashes (1MB body limit fixed)
+[Define requirements for v1.2 when starting next milestone with `/gsd-new-milestone`]
 
 ### Out of Scope
 
@@ -61,8 +54,13 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 - Light color scheme evoking gallery/museum spaces
 - OpenAI API for image generation and script generation
 - Eleven Labs API for voice synthesis
+- HTML5 Audio API for background music with fade effects
 
-**Shipped:** v1.0 on 2026-04-13
+**Current State:**
+- v1.0 shipped on 2026-04-13
+- v1.1 shipped on 2026-04-15
+- Phases 3-4 completed (display stability + audio experience)
+- All 15 requirements satisfied across v1.0 and v1.1
 
 ## Constraints
 
@@ -73,6 +71,8 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 - **Desktop Experience**: Focus on desktop browser experience
 
 ## Key Decisions
+
+### v1.0 Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
@@ -85,6 +85,16 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 | OpenAI for image + script | Configurable models via env vars | ✓ Shipped v1.0 |
 | Eleven Labs for voice | TTS with formal docent voice | ✓ Shipped v1.0 |
 | Sequential pipeline | Script describes actual generated image | ✓ Shipped v1.0 |
+
+### v1.1 Decisions
+
+| Decision | Rationale | Outcome |
+|----------|-----------|---------|
+| useBackgroundMusic custom hook | Clean separation of audio logic from UI | ✓ Working |
+| State lifted to gallery-content.tsx | Enables parent-level mute button | ✓ Working |
+| Conditional container width | Artwork needs 70vw, form needs max-w-xl | ✓ Working |
+| Background music + narration coexist | Both audio sources can play simultaneously | ✓ Working |
+| Autoplay handled gracefully | Browser restrictions respected with mute fallback | ✓ Working |
 
 ## Evolution
 
@@ -105,4 +115,4 @@ This document evolves at phase transitions and milestone boundaries.
 
 ---
 
-*Last updated: 2026-04-13 — v1.1 milestone started (Polish & Refinements)*
+*Last updated: 2026-04-15 after v1.1 milestone completion*

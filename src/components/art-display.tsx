@@ -48,7 +48,7 @@ export function ArtDisplay({ imageUrl, audioBase64, script, artworkSize = 70, on
           <img 
             src={imageUrl} 
             alt="Generated artwork" 
-            className="w-full h-auto rounded-sm aspect-video object-cover"
+            className="w-full h-auto rounded-sm"
           />
         </div>
       </div>

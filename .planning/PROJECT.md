@@ -2,11 +2,22 @@
 
 ## What This Is
 
-A web experience where visitors curate AI-generated artwork for exhibition. Enter a text prompt, and watch as an image materializes in a museum-worthy frame, accompanied by a formal museum docent's narration explaining the piece. The visitor plays the role of gallery curator, selecting works for display, while an AI art expert provides context and commentary. Ephemeral and intentional—each creation exists only in the moment.
+A web experience where visitors curate AI-generated artwork for exhibition. Enter a text prompt or drop your own image, and watch as it appears in a museum-worthy frame, accompanied by a formal museum docent's narration explaining the piece. The visitor plays the role of gallery curator, selecting works for display, while an AI art expert provides context and commentary. Ephemeral and intentional—each creation exists only in the moment.
 
 ## Core Value
 
 A meditative, gallery-like experience where AI-generated art feels curated and meaningful, not random.
+
+## Current Milestone: v1.2 Image Upload & Lecture
+
+**Goal:** Let visitors drop their own image into the gallery and get a docent narration, skipping the AI image generation step.
+
+**Target features:**
+- Drag-and-drop image upload replacing the text prompt
+- Visual drag indicator (plus icon) on text field when hovering an image
+- Image preview window after drop with remove option
+- Script + voice generation based on the dropped image (vision model)
+- Dropped image displays in the same elegant frame
 
 ## Requirements
 
@@ -35,7 +46,7 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 
 ### Active
 
-[Define requirements for v1.2 when starting next milestone with `/gsd-new-milestone`]
+<!-- v1.2 Image Upload & Lecture — see REQUIREMENTS.md for full details -->
 
 ### Out of Scope
 
@@ -61,6 +72,7 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 - v1.1 shipped on 2026-04-15
 - Phases 3-4 completed (display stability + audio experience)
 - All 15 requirements satisfied across v1.0 and v1.1
+- Starting v1.2: Image Upload & Lecture
 
 ## Constraints
 
@@ -115,4 +127,4 @@ This document evolves at phase transitions and milestone boundaries.
 
 ---
 
-*Last updated: 2026-04-15 after v1.1 milestone completion*
+*Last updated: 2026-04-17 after v1.2 milestone kickoff*

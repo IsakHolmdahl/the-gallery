@@ -1,38 +1,39 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.1
-milestone_name: Polish & Refinements
-status: executing
-last_updated: "2026-04-15T12:56:12.328Z"
-last_activity: 2026-04-15
+milestone: v1.2
+milestone_name: Image Upload & Lecture
+status: defining_requirements
+last_updated: "2026-04-17"
+last_activity: 2026-04-17
 progress:
-  total_phases: 2
-  completed_phases: 2
-  total_plans: 2
-  completed_plans: 2
-  percent: 100
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # State: Art Gallery
 
-**Last updated:** 2026-04-13
+**Last updated:** 2026-04-17
 
 ## Project Reference
 
 **Project:** Art Gallery - AI Image Experience
 **Core value:** A meditative, gallery-like experience where AI-generated art feels curated and meaningful, not random.
-**Current focus:** Phase 03 — Gallery Display & Stability
+**Current focus:** Defining requirements for v1.2 Image Upload & Lecture
 
 ## Current Position
 
-Phase: 4
-Plan: Not started
-Status: Executing Phase 03
-Last activity: 2026-04-15
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-04-17 — Milestone v1.2 started
 
 ## Performance Metrics
 
 - v1.0: 2 phases, 16/16 requirements, shipped 2026-04-13
+- v1.1: 2 phases, 7/7 requirements, shipped 2026-04-15
 
 ## Accumulated Context
 
@@ -46,6 +47,8 @@ Last activity: 2026-04-15
 - shadcn + light theme (gallery-white aesthetic)
 - OpenAI for image + script (configurable models)
 - Eleven Labs for voice (formal docent voice)
+- Background music with fade effects
+- useBackgroundMusic custom hook pattern
 
 ### Technical Environment
 
@@ -53,9 +56,10 @@ Last activity: 2026-04-15
 - shadcn UI components
 - OpenAI API (DALL-E for images, GPT for scripts)
 - Eleven Labs API (TTS)
+- HTML5 Audio API for background music
 - Configurable via env vars
 
-### v1.1 Scope
+### v1.1 Scope (Completed)
 
 2 phases, 7 requirements:
 

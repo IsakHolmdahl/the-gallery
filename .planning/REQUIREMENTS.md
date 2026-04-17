@@ -13,7 +13,7 @@ Requirements for the Image Upload & Lecture milestone. Each maps to roadmap phas
 - [ ] **DROP-02**: Only PNG, JPEG, and WEBP files are accepted; other types show a friendly error
 - [ ] **DROP-03**: Images over 3MB are rejected with a clear message explaining the limit
 - [ ] **DROP-04**: User can click the text field area to open a file picker (click-to-upload fallback)
-- [ ] **DROP-05**: Drag indicator has smooth amber/stone border glow animation matching gallery aesthetic
+- [x] **DROP-05**: Drag indicator has smooth amber/stone border glow animation matching gallery aesthetic
 
 ### Image Preview
 
@@ -58,7 +58,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DROP-02 | Phase 6 | Pending |
 | DROP-03 | Phase 6 | Pending |
 | DROP-04 | Phase 6 | Pending |
-| DROP-05 | Phase 7 | Pending |
+| DROP-05 | Phase 7 | Complete |
 | PREV-01 | Phase 6 | Pending |
 | PREV-02 | Phase 6 | Pending |
 | PREV-03 | Phase 6 | Pending |

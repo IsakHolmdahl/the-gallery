@@ -94,7 +94,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 07-01: Drag flicker fix, non-image filter, error retry, glow animation
+- [x] 07-01: Drag flicker fix, non-image filter, error retry, glow animation
 **UI hint**: yes
 
 ## Progress
@@ -107,7 +107,7 @@ Plans:
 | 4. Audio Experience | v1.1 | N/A | Complete | 2026-04-15 |
 | 5. Vision Pipeline | v1.2 | 0/1 | Ready to execute | - |
 | 6. Upload Interface | v1.2 | 1/1 | Complete | 2026-04-17 |
-| 7. Polish & Edge Cases | v1.2 | 0/TBD | Not started | - |
+| 7. Polish & Edge Cases | v1.2 | 1/1 | Complete   | 2026-04-17 |
 
 ---
 

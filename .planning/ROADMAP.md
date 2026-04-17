@@ -58,7 +58,10 @@ Plans:
   3. Voice narration is generated using the existing ElevenLabs pipeline after the vision script
   4. The dropped image displays in the full-size elegant frame, identical to AI-generated images
   5. Vision model uses `detail: "high"` for richer, more specific art analysis
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 05-01: Vision server action (createArtFromImage with validation)
 
 #### Phase 6: Upload Interface
 **Goal**: Users can upload images via drag-and-drop or click, see a preview, and submit for narration
@@ -95,7 +98,7 @@ Plans:
 | 2. Display & Interaction | v1.0 | 1/1 | Complete | 2026-04-13 |
 | 3. Gallery Display & Stability | v1.1 | 1/1 | Complete | 2026-04-15 |
 | 4. Audio Experience | v1.1 | N/A | Complete | 2026-04-15 |
-| 5. Vision Pipeline | v1.2 | 0/TBD | Not started | - |
+| 5. Vision Pipeline | v1.2 | 0/1 | Ready to execute | - |
 | 6. Upload Interface | v1.2 | 0/TBD | Not started | - |
 | 7. Polish & Edge Cases | v1.2 | 0/TBD | Not started | - |
 

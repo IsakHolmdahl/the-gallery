@@ -54,25 +54,25 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DROP-01 | — | Pending |
-| DROP-02 | — | Pending |
-| DROP-03 | — | Pending |
-| DROP-04 | — | Pending |
-| DROP-05 | — | Pending |
-| PREV-01 | — | Pending |
-| PREV-02 | — | Pending |
-| PREV-03 | — | Pending |
-| VISN-01 | — | Pending |
-| VISN-02 | — | Pending |
-| VISN-03 | — | Pending |
-| VISN-04 | — | Pending |
-| VISN-05 | — | Pending |
-| VISN-06 | — | Pending |
+| DROP-01 | Phase 6 | Pending |
+| DROP-02 | Phase 6 | Pending |
+| DROP-03 | Phase 6 | Pending |
+| DROP-04 | Phase 6 | Pending |
+| DROP-05 | Phase 7 | Pending |
+| PREV-01 | Phase 6 | Pending |
+| PREV-02 | Phase 6 | Pending |
+| PREV-03 | Phase 6 | Pending |
+| VISN-01 | Phase 5 | Pending |
+| VISN-02 | Phase 5 | Pending |
+| VISN-03 | Phase 5 | Pending |
+| VISN-04 | Phase 5 | Pending |
+| VISN-05 | Phase 6 | Pending |
+| VISN-06 | Phase 5 | Pending |
 
 **Coverage:**
 - v1.2 requirements: 14 total
-- Mapped to phases: 0
-- Unmapped: 14 ⚠️
+- Mapped to phases: 14
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-04-17*

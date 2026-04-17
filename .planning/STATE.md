@@ -2,12 +2,12 @@
 gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Image Upload & Lecture
-status: defining_requirements
+status: ready_to_plan
 last_updated: "2026-04-17"
 last_activity: 2026-04-17
 progress:
-  total_phases: 0
-  completed_phases: 0
+  total_phases: 7
+  completed_phases: 4
   total_plans: 0
   completed_plans: 0
   percent: 0
@@ -21,50 +21,48 @@ progress:
 
 **Project:** Art Gallery - AI Image Experience
 **Core value:** A meditative, gallery-like experience where AI-generated art feels curated and meaningful, not random.
-**Current focus:** Defining requirements for v1.2 Image Upload & Lecture
+**Current focus:** Phase 5 — Vision Pipeline
 
 ## Current Position
 
-Phase: Not started (defining requirements)
+Phase: 5 of 7 (Vision Pipeline)
 Plan: —
-Status: Defining requirements
-Last activity: 2026-04-17 — Milestone v1.2 started
+Status: Ready to plan
+Last activity: 2026-04-17 — Roadmap created for v1.2 (3 phases, 14 requirements)
+
+Progress: [████████░░░░░░░░░░░░] 57%
 
 ## Performance Metrics
 
 - v1.0: 2 phases, 16/16 requirements, shipped 2026-04-13
 - v1.1: 2 phases, 7/7 requirements, shipped 2026-04-15
+- v1.2: 3 phases planned, 14/14 requirements mapped
 
 ## Accumulated Context
 
 ### Decisions
 
-- No user accounts (simplicity)
-- Ephemeral experience (art exists in moment)
-- Visitor as curator (prompts + AI artist)
-- Fancy frame around image (museum authenticity)
-- Formal docent narration (elevates AI output)
-- shadcn + light theme (gallery-white aesthetic)
-- OpenAI for image + script (configurable models)
-- Eleven Labs for voice (formal docent voice)
-- Background music with fade effects
-- useBackgroundMusic custom hook pattern
+- Phase 5 builds the server-side vision pipeline first (research-recommended order)
+- Phase 6 builds all upload UI (drag-drop, preview, validation)
+- Phase 7 handles edge cases and polish
+- 3MB client-side cap for images (Vercel 4.5MB body limit after base64 inflation)
+- Reuse OPENAI_SCRIPT_MODEL for vision (no new env var)
+- GIFs rejected entirely (OpenAI doesn't support animated GIFs)
+- `detail: "high"` for richer docent narration
 
-### Technical Environment
+### Pending Todos
 
-- Next.js with TypeScript
-- shadcn UI components
-- OpenAI API (DALL-E for images, GPT for scripts)
-- Eleven Labs API (TTS)
-- HTML5 Audio API for background music
-- Configurable via env vars
+None yet.
 
-### v1.1 Scope (Completed)
+### Blockers/Concerns
 
-2 phases, 7 requirements:
+- Body size limit (~3MB cap) is the main risk — if insufficient, migrate to API route with larger limit
 
-- Phase 3: BUG-01, DISP-01, DISP-02 (display + stability)
-- Phase 4: AUD-01, AUD-02, AUD-03, AUD-04 (audio experience)
+## Session Continuity
+
+Last session: 2026-04-17
+Stopped at: Roadmap created — ready for Phase 5 planning
+Resume file: None
 
 ---
 

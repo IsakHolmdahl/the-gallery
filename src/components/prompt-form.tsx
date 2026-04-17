@@ -31,7 +31,7 @@ export function PromptForm({ artworkSize = 70, onArtworkStateChange }: PromptFor
   // Image upload state
   const [imageData, setImageData] = useState<string | null>(null)
   const [imagePreview, setImagePreview] = useState<string | null>(null)
-  const [isDragging, setIsDragging] = useState(false)
+  const [dragCounter, setDragCounter] = useState(0)
   const [imageError, setImageError] = useState<string | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
@@ -62,20 +62,29 @@ export function PromptForm({ artworkSize = 70, onArtworkStateChange }: PromptFor
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    setIsDragging(true)
+    // Check if drag payload contains files/images — ignore text/link drags
+    const hasImage = Array.from(e.dataTransfer.items).some(
+      item => item.kind === 'file' && item.type.startsWith('image/')
+    )
+    if (hasImage || e.dataTransfer.types.includes('Files')) {
+      setDragCounter(prev => prev + 1)
+    }
   }
 
   const handleDragLeave = (e: React.DragEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    setIsDragging(false)
+    setDragCounter(prev => Math.max(prev - 1, 0))
   }
 
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    setIsDragging(false)
+    setDragCounter(0)
     setImageError(null)
+
+    // Ignore non-file drops (text, links)
+    if (!e.dataTransfer.files.length) return
 
     const file = e.dataTransfer.files[0]
     if (file) {
@@ -227,13 +236,13 @@ export function PromptForm({ artworkSize = 70, onArtworkStateChange }: PromptFor
               onDrop={handleDrop}
               onClick={() => fileInputRef.current?.click()}
               className={`absolute inset-0 rounded-xl transition-all duration-200 cursor-pointer
-                ${isDragging
+                ${dragCounter > 0
                   ? 'bg-amber-50/80 border-2 border-dashed border-amber-400 ring-2 ring-amber-200/50'
                   : 'bg-transparent'
                 }
               `}
             >
-              {isDragging && (
+              {dragCounter > 0 && (
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="flex flex-col items-center space-y-2">
                     <svg className="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -259,7 +268,19 @@ export function PromptForm({ artworkSize = 70, onArtworkStateChange }: PromptFor
 
       {/* Error message */}
       {(state?.error || imageError) && (
-        <p className="text-sm text-red-600 text-center">{state?.error || imageError}</p>
+        <div className="flex flex-col items-center space-y-2">
+          <p className="text-sm text-red-600 text-center">{state?.error || imageError}</p>
+          <button
+            type="button"
+            onClick={() => {
+              setImageError(null)
+              setState(null)
+            }}
+            className="text-sm text-stone-500 hover:text-stone-700 underline underline-offset-2 transition-colors"
+          >
+            Try again
+          </button>
+        </div>
       )}
 
       {/* Elegant submit button */}

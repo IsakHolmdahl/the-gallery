@@ -237,7 +237,7 @@ export function PromptForm({ artworkSize = 70, onArtworkStateChange }: PromptFor
               onClick={() => fileInputRef.current?.click()}
               className={`absolute inset-0 rounded-xl transition-all duration-200 cursor-pointer
                 ${dragCounter > 0
-                  ? 'bg-amber-50/80 border-2 border-dashed border-amber-400 ring-2 ring-amber-200/50'
+                  ? 'bg-amber-50/60 border-2 border-dashed border-amber-400 drop-zone-glow'
                   : 'bg-transparent'
                 }
               `}

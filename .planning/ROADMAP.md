@@ -75,7 +75,11 @@ Plans:
   5. Dropped image displays as a preview in a miniature museum-style frame, replacing the text field
   6. Remove button (X) clears the preview and returns to text prompt mode
   7. "Create Another" resets image state — revokes object URL, clears preview, returns to text prompt
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [x] 06-01: Upload interface (drop zone, preview, dynamic button, mode switching)
+
 **UI hint**: yes
 
 #### Phase 7: Polish & Edge Cases
@@ -99,7 +103,7 @@ Plans:
 | 3. Gallery Display & Stability | v1.1 | 1/1 | Complete | 2026-04-15 |
 | 4. Audio Experience | v1.1 | N/A | Complete | 2026-04-15 |
 | 5. Vision Pipeline | v1.2 | 0/1 | Ready to execute | - |
-| 6. Upload Interface | v1.2 | 0/TBD | Not started | - |
+| 6. Upload Interface | v1.2 | 1/1 | Complete | 2026-04-17 |
 | 7. Polish & Edge Cases | v1.2 | 0/TBD | Not started | - |
 
 ---

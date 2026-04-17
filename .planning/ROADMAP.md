@@ -91,7 +91,10 @@ Plans:
   2. Object URLs are always revoked on remove, reset, and component unmount — no memory leaks
   3. Non-image drag payloads (text, links) are ignored without triggering the drop zone
   4. Error states for vision generation or voice synthesis show friendly messages allowing retry
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 07-01: Drag flicker fix, non-image filter, error retry, glow animation
 **UI hint**: yes
 
 ## Progress

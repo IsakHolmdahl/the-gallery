@@ -62,6 +62,7 @@ Progress: [██████████░░░░░░░░░░] 71%
 ### Blockers/Concerns
 
 - ~~Body size limit (~3MB cap) is the main risk~~ — RESOLVED: increased to 10MB (2026-04-20). Note: base64 inflates ~33%, so 10MB raw → ~13.3MB encoded. Verify deployment supports this.
+- ~~Vercel free tier 1.5MB default body limit~~ — RESOLVED: `serverActions.bodySizeLimit: '10mb'` in next.config.js (2026-04-20). Client-side compression keeps payloads under ~4.5MB in practice.
 - Human verification needed for visual/behavioral aspects (amber glow, frame rendering, mode switching)
 
 ### Quick Tasks Completed
@@ -69,11 +70,12 @@ Progress: [██████████░░░░░░░░░░] 71%
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
 | 260420-c8p | increase max size from 3mb to 10mb | 2026-04-20 | 156199e | [260420-c8p-increase-max-size-from-3mb-to-10mb](./quick/260420-c8p-increase-max-size-from-3mb-to-10mb/) |
+| 260420-cmu | add client-side image compression for Vercel free tier | 2026-04-20 | 87ee7ed | [260420-cmu-add-client-side-image-compression-for-ve](./quick/260420-cmu-add-client-side-image-compression-for-ve/) |
 
 ## Session Continuity
 
-Last session: 2026-04-20T06:48:51.293Z
-Stopped at: Completed quick task 260420-c8p: increase max size from 3mb to 10mb
+Last session: 2026-04-20T07:05:48.482Z
+Stopped at: Completed quick task 260420-cmu: add client-side image compression for Vercel free tier
 Resume file: None
 
 ---

@@ -71,11 +71,12 @@ Progress: [██████████░░░░░░░░░░] 71%
 |---|-------------|------|--------|-----------|
 | 260420-c8p | increase max size from 3mb to 10mb | 2026-04-20 | 156199e | [260420-c8p-increase-max-size-from-3mb-to-10mb](./quick/260420-c8p-increase-max-size-from-3mb-to-10mb/) |
 | 260420-cmu | add client-side image compression for Vercel free tier | 2026-04-20 | 87ee7ed | [260420-cmu-add-client-side-image-compression-for-ve](./quick/260420-cmu-add-client-side-image-compression-for-ve/) |
+| 260420-dh8 | add 1 second delay to voice narration after image reveal | 2026-04-20 | 18c2154 | [260420-dh8-add-1-second-delay-to-voice-narration-af](./quick/260420-dh8-add-1-second-delay-to-voice-narration-af/) |
 
 ## Session Continuity
 
-Last session: 2026-04-20T07:05:48.482Z
-Stopped at: Completed quick task 260420-cmu: add client-side image compression for Vercel free tier
+Last session: 2026-04-20T07:42:16.088Z
+Stopped at: Completed quick task 260420-dh8: add 1 second delay to voice narration after image reveal
 Resume file: None
 
 ---

@@ -29,19 +29,19 @@ describe('file validation', () => {
     expect(result.valid).toBe(false)
   })
 
-  it('rejects files over 3MB', () => {
-    const result = validateFile({ type: 'image/png', size: 4 * 1024 * 1024 })
+  it('rejects files over 10MB', () => {
+    const result = validateFile({ type: 'image/png', size: 11 * 1024 * 1024 })
     expect(result.valid).toBe(false)
-    expect(result.error).toContain('Maximum size is 3MB')
+    expect(result.error).toContain('Maximum size is 10MB')
   })
 
-  it('accepts files at exactly 3MB', () => {
-    const result = validateFile({ type: 'image/png', size: 3 * 1024 * 1024 })
+  it('accepts files at exactly 10MB', () => {
+    const result = validateFile({ type: 'image/png', size: 10 * 1024 * 1024 })
     expect(result.valid).toBe(true)
   })
 
-  it('rejects files just over 3MB', () => {
-    const result = validateFile({ type: 'image/png', size: 3 * 1024 * 1024 + 1 })
+  it('rejects files just over 10MB', () => {
+    const result = validateFile({ type: 'image/png', size: 10 * 1024 * 1024 + 1 })
     expect(result.valid).toBe(false)
   })
 

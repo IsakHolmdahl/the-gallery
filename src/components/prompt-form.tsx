@@ -6,7 +6,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Spinner } from '@/components/spinner'
 import { createArt, createArtFromImage } from '@/app/actions'
 import { ArtDisplay } from './art-display'
-import { validateFile } from './file-utils'
+import { validateFile, compressImage, COMPRESSION_THRESHOLD } from './file-utils'
 
 const MUSEUM_MESSAGES = [
   'Creation in Progress, Perfection Pending',
@@ -38,11 +38,22 @@ export function PromptForm({ artworkSize = 70, onArtworkStateChange }: PromptFor
   const isEmpty = imageData ? false : prompt.trim().length === 0
 
   // File validation and processing
-  const processFile = (file: File) => {
+  const processFile = async (file: File) => {
     const validation = validateFile({ type: file.type, size: file.size })
     if (!validation.valid) {
       setImageError(validation.error)
       return
+    }
+
+    // Compress large images client-side before encoding
+    if (file.size > COMPRESSION_THRESHOLD) {
+      setImageError('Compressing...')
+      try {
+        file = await compressImage(file)
+      } catch {
+        // If compression fails, proceed with original file
+      }
+      setImageError(null)
     }
 
     // Create preview URL

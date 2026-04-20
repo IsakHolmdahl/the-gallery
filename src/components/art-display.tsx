@@ -20,14 +20,19 @@ export function ArtDisplay({ imageUrl, audioBase64, script, artworkSize = 70, on
     // Trigger fade-in animation after mount
     requestAnimationFrame(() => setIsVisible(true))
     
-    if (audioRef.current) {
-      audioRef.current.play()
-        .then(() => setShowPlayButton(false))
-        .catch(() => {
-          // Autoplay blocked - show fallback button
-          setShowPlayButton(true)
-        })
-    }
+    // Delay voice by 1s so image can reveal first
+    const timer = setTimeout(() => {
+      if (audioRef.current) {
+        audioRef.current.play()
+          .then(() => setShowPlayButton(false))
+          .catch(() => {
+            // Autoplay blocked - show fallback button
+            setShowPlayButton(true)
+          })
+      }
+    }, 1000)
+
+    return () => clearTimeout(timer)
   }, [audioBase64])
 
   const handlePlayNarration = () => {

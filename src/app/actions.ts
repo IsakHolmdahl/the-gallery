@@ -111,3 +111,101 @@ export async function createArt(
     return { success: false, error: `Generation failed: ${message}` };
   }
 }
+
+const ALLOWED_IMAGE_TYPES = ["image/png", "image/jpeg", "image/webp"];
+const MAX_IMAGE_SIZE_BYTES = 10 * 1024 * 1024; // 10MB
+
+export async function createArtFromImage(
+  formData: FormData,
+): Promise<{
+  success: boolean;
+  imageUrl?: string;
+  audioBase64?: string;
+  script?: string;
+  error?: string;
+}> {
+  try {
+    const imageData = formData.get("image") as string;
+    const mimeType = formData.get("mimeType") as string;
+
+    // Validate input presence
+    if (!imageData || imageData.trim().length === 0) {
+      return { success: false, error: "No image provided." };
+    }
+
+    // Validate data URI structure
+    if (!imageData.startsWith("data:image/") || !imageData.includes(";base64,")) {
+      return { success: false, error: "Invalid image data format." };
+    }
+
+    // Validate image format
+    if (!mimeType || !ALLOWED_IMAGE_TYPES.includes(mimeType)) {
+      return {
+        success: false,
+        error: "Unsupported image format. Please use PNG, JPEG, or WEBP.",
+      };
+    }
+
+    // Validate image size (extract base64 payload and check decoded size)
+    const base64Payload = imageData.split(";base64,")[1];
+    if (!base64Payload) {
+      return { success: false, error: "Invalid image data format." };
+    }
+    const decodedSize = Buffer.byteLength(base64Payload, "base64");
+    if (decodedSize > MAX_IMAGE_SIZE_BYTES) {
+      return {
+        success: false,
+        error: "Image too large. Maximum size is 10MB.",
+      };
+    }
+
+    // Step 1: Generate script via vision API
+    const scriptResponse = await openai.chat.completions.create({
+      model: env.OPENAI_SCRIPT_MODEL,
+      messages: [
+        { role: "system", content: DOCENT_SYSTEM_PROMPT },
+        {
+          role: "user",
+          content: [
+            {
+              type: "text",
+              text: "Describe this artwork as a docent narration for gallery visitors.",
+            },
+            {
+              type: "image_url",
+              image_url: { url: imageData, detail: "high" },
+            },
+          ],
+        },
+      ],
+      max_completion_tokens: 500,
+    });
+
+    const script = scriptResponse.choices[0].message.content;
+    if (!script) {
+      return {
+        success: false,
+        error: "Failed to generate narration script. Please try again.",
+      };
+    }
+
+    // Step 2: Generate voice via ElevenLabs
+    const audioStream = await elevenlabs.textToSpeech.stream(
+      env.ELEVEN_LABS_VOICE_ID,
+      {
+        text: script,
+        modelId: "eleven_multilingual_v2",
+        outputFormat: "mp3_44100_128",
+      },
+    );
+
+    const audioBase64 = await collectStream(audioStream);
+
+    return { success: true, imageUrl: imageData, audioBase64, script };
+  } catch (error) {
+    console.error("createArtFromImage error:", error);
+    const message =
+      error instanceof Error ? error.message : "An unexpected error occurred.";
+    return { success: false, error: `Generation failed: ${message}` };
+  }
+}

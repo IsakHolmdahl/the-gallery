@@ -65,7 +65,11 @@ export function useBackgroundMusic({
 
         // Ease-out cubic for natural fade
         const eased = 1 - Math.pow(1 - progress, 3);
-        audio.volume = startVolume + (targetVolume - startVolume) * eased;
+        // Clamp to [0, 1] to avoid floating point precision errors
+        audio.volume = Math.max(
+          0,
+          Math.min(1, startVolume + (targetVolume - startVolume) * eased),
+        );
 
         if (progress < 1) {
           animationFrameRef.current = requestAnimationFrame(animate);
@@ -92,7 +96,7 @@ export function useBackgroundMusic({
         console.log("Background music autoplay blocked");
       });
       // Fade in
-      fadeAudio(0.5, fadeDuration);
+      fadeAudio(0.25, fadeDuration);
     } else if (isPlaying && isMuted) {
       // Playing but muted
       audio.play().catch(() => {});

@@ -2,68 +2,58 @@
 gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Image Upload & Lecture
-status: executing
-stopped_at: Completed 07-01-PLAN.md
-last_updated: "2026-04-17T12:28:01.307Z"
+status: complete
+stopped_at: Milestone v1.2 archived
+last_updated: "2026-04-20T09:50:00.000Z"
 last_activity: 2026-04-20
 progress:
-  total_phases: 3
-  completed_phases: 3
-  total_plans: 3
-  completed_plans: 3
+  total_phases: 7
+  completed_phases: 7
+  total_plans: 7
+  completed_plans: 7
   percent: 100
 ---
 
 # State: Art Gallery
 
-**Last updated:** 2026-04-17
+**Last updated:** 2026-04-20
 
 ## Project Reference
 
-**Project:** Art Gallery - AI Image Experience
+See: .planning/PROJECT.md (updated 2026-04-20)
+
 **Core value:** A meditative, gallery-like experience where AI-generated art feels curated and meaningful, not random.
-**Current focus:** Phase 7 — polish-edge-cases
+**Current focus:** Planning next milestone
 
 ## Current Position
 
-Phase: 7
-Plan: Not started
-Status: Executing Phase 7
+Phase: Milestone v1.2 complete
+Plan: None — ready for next milestone
+Status: Shipped
 Last activity: 2026-04-20
 
-Progress: [██████████░░░░░░░░░░] 71%
+Progress: [████████████████████] 100%
 
 ## Performance Metrics
 
 - v1.0: 2 phases, 16/16 requirements, shipped 2026-04-13
 - v1.1: 2 phases, 7/7 requirements, shipped 2026-04-15
-- v1.2: 3 phases planned, 14/14 requirements mapped, 1 phase complete
+- v1.2: 3 phases, 14/14 requirements, shipped 2026-04-20
 
 ## Accumulated Context
 
 ### Decisions
 
-- Phase 5 builds the server-side vision pipeline first (research-recommended order)
-- Phase 6 builds all upload UI (drag-drop, preview, validation)
-- Phase 7 handles edge cases and polish
-- 3MB client-side cap for images (Vercel 4.5MB body limit after base64 inflation)
-- Reuse OPENAI_SCRIPT_MODEL for vision (no new env var)
-- GIFs rejected entirely (OpenAI doesn't support animated GIFs)
-- `detail: "high"` for richer docent narration
-- Drop zone overlays textarea with amber/stone glow (Phase 6)
-- Simplified gallery frame for preview (Phase 6)
-- Button text changes to "Analyze art" when image present (Phase 6)
-- X button only for clearing preview (Phase 6)
+All v1.2 decisions finalized. See PROJECT.md for full decision log.
 
 ### Pending Todos
 
-- Phase 7: Polish & Edge Cases (drag-enter/leave flicker, non-image payloads, error states)
+None — milestone complete. Run /gsd-new-milestone to define next.
 
 ### Blockers/Concerns
 
-- ~~Body size limit (~3MB cap) is the main risk~~ — RESOLVED: increased to 10MB (2026-04-20). Note: base64 inflates ~33%, so 10MB raw → ~13.3MB encoded. Verify deployment supports this.
-- ~~Vercel free tier 1.5MB default body limit~~ — RESOLVED: `serverActions.bodySizeLimit: '10mb'` in next.config.js (2026-04-20). Client-side compression keeps payloads under ~4.5MB in practice.
 - Human verification needed for visual/behavioral aspects (amber glow, frame rendering, mode switching)
+- Note: base64 inflates ~33%, so 10MB raw → ~13.3MB encoded. Verify Vercel deployment supports this.
 
 ### Quick Tasks Completed
 
@@ -75,8 +65,8 @@ Progress: [██████████░░░░░░░░░░] 71%
 
 ## Session Continuity
 
-Last session: 2026-04-20T07:42:16.088Z
-Stopped at: Completed quick task 260420-dh8: add 1 second delay to voice narration after image reveal
+Last session: 2026-04-20T09:50:00.000Z
+Stopped at: Milestone v1.2 complete, archived to milestones/
 Resume file: None
 
 ---

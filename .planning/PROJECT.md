@@ -8,17 +8,6 @@ A web experience where visitors curate AI-generated artwork for exhibition. Ente
 
 A meditative, gallery-like experience where AI-generated art feels curated and meaningful, not random.
 
-## Current Milestone: v1.2 Image Upload & Lecture
-
-**Goal:** Let visitors drop their own image into the gallery and get a docent narration, skipping the AI image generation step.
-
-**Target features:**
-- Drag-and-drop image upload replacing the text prompt
-- Visual drag indicator (plus icon) on text field when hovering an image
-- Image preview window after drop with remove option
-- Script + voice generation based on the dropped image (vision model)
-- Dropped image displays in the same elegant frame
-
 ## Requirements
 
 ### Validated
@@ -34,7 +23,7 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 - ✓ Clean, light gallery aesthetic with shadcn components — v1.0
 - ✓ Error states display friendly message allowing retry — v1.0
 
-#### v1.1 Polish & Refinements
+#### v1.1
 
 - ✓ Artwork frame displays in 16:9 landscape aspect ratio — v1.1
 - ✓ Artwork display size is larger and configurable via `ARTWORK_SIZE` env var — v1.1
@@ -44,9 +33,26 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 - ✓ Mute button appears in bottom corner while music is playing — v1.1
 - ✓ Second image generation no longer crashes (1MB body limit fixed) — v1.1
 
+#### v1.2
+
+- ✓ Plus icon and border glow appear on text field when user drags an image over it — v1.2
+- ✓ Only PNG, JPEG, and WEBP files are accepted; other types show a friendly error — v1.2
+- ✓ Images over 10MB are rejected with a clear message explaining the limit — v1.2
+- ✓ User can click the text field area to open a file picker (click-to-upload fallback) — v1.2
+- ✓ Drag indicator has smooth amber/stone border glow animation matching gallery aesthetic — v1.2
+- ✓ Dropped image displays as a preview replacing the text field — v1.2
+- ✓ Remove button (X) clears the preview and returns to text prompt mode — v1.2
+- ✓ Preview image is displayed in a miniature museum-style frame — v1.2
+- ✓ New `createArtFromImage` server action generates docent script from dropped image using OpenAI vision model — v1.2
+- ✓ Dropped image is base64-encoded on client before sending to server action — v1.2
+- ✓ Voice narration generates using the same ElevenLabs pipeline after vision script — v1.2
+- ✓ Dropped image displays in the full-size elegant frame (same as AI-generated images) — v1.2
+- ✓ "Create Another" resets image state — revokes object URL, clears preview, returns to text prompt — v1.2
+- ✓ Vision model uses `detail: "high"` for richer, more specific docent narration — v1.2
+
 ### Active
 
-<!-- v1.2 Image Upload & Lecture — see REQUIREMENTS.md for full details -->
+<!-- No active requirements — v1.2 complete. Run /gsd-new-milestone to define next. -->
 
 ### Out of Scope
 
@@ -66,13 +72,15 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 - OpenAI API for image generation and script generation
 - Eleven Labs API for voice synthesis
 - HTML5 Audio API for background music with fade effects
+- Canvas API for client-side image compression
 
 **Current State:**
 - v1.0 shipped on 2026-04-13
 - v1.1 shipped on 2026-04-15
-- Phases 3-4 completed (display stability + audio experience)
-- All 15 requirements satisfied across v1.0 and v1.1
-- Starting v1.2: Image Upload & Lecture
+- v1.2 shipped on 2026-04-20
+- All 29 requirements satisfied across v1.0, v1.1, and v1.2
+- Text-to-art generation + image upload with narration fully working
+- Ready for next milestone
 
 ## Constraints
 
@@ -108,23 +116,24 @@ A meditative, gallery-like experience where AI-generated art feels curated and m
 | Background music + narration coexist | Both audio sources can play simultaneously | ✓ Working |
 | Autoplay handled gracefully | Browser restrictions respected with mute fallback | ✓ Working |
 
+### v1.2 Decisions
+
+| Decision | Rationale | Outcome |
+|----------|-----------|---------|
+| Reuse OPENAI_SCRIPT_MODEL for vision | No new env var needed | ✓ Shipped v1.2 |
+| GIFs rejected entirely | OpenAI doesn't support animated GIFs | ✓ Shipped v1.2 |
+| `detail: "high"` for vision | Richer, more specific art analysis | ✓ Shipped v1.2 |
+| Drop zone overlays textarea | Single interactive element, no layout shift | ✓ Shipped v1.2 |
+| Simplified gallery frame for preview | Lightweight, responsive | ✓ Shipped v1.2 |
+| Dynamic button text | "Analyze art" signals image mode | ✓ Shipped v1.2 |
+| Counter-based drag detection | Eliminates flicker on child elements | ✓ Shipped v1.2 |
+| Canvas API compression | Zero dependencies, Vercel compatible | ✓ Shipped v1.2 |
+| 1-second voice delay | Image reveal before narration | ✓ Shipped v1.2 |
+
 ## Evolution
 
 This document evolves at phase transitions and milestone boundaries.
 
-**After each phase transition** (via `/gsd-transition`):
-1. Requirements invalidated? → Move to Out of Scope with reason
-2. Requirements validated? → Move to Validated with phase reference
-3. New requirements emerged? → Add to Active
-4. Decisions to log? → Add to Key Decisions
-5. "What This Is" still accurate? → Update if drifted
-
-**After each milestone** (via `/gsd-complete-milestone`):
-1. Full review of all sections
-2. Core Value check — still the right priority?
-3. Audit Out of Scope — reasons still valid?
-4. Update Context with current state
-
 ---
 
-*Last updated: 2026-04-17 after v1.2 milestone kickoff*
+*Last updated: 2026-04-20 after v1.2 milestone completion*

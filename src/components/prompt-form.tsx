@@ -240,15 +240,14 @@ export function PromptForm({ artworkSize = 70, onArtworkStateChange }: PromptFor
               onChange={(e) => setPrompt(e.target.value)}
             />
 
-            {/* Drop zone overlay */}
+            {/* Drop zone overlay — drag only, does not intercept clicks */}
             <div
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}
               onDrop={handleDrop}
-              onClick={() => fileInputRef.current?.click()}
-              className={`absolute inset-0 rounded-xl transition-all duration-200 cursor-pointer
+              className={`absolute inset-0 rounded-xl transition-all duration-200 pointer-events-none
                 ${dragCounter > 0
-                  ? 'bg-amber-50/60 border-2 border-dashed border-amber-400 drop-zone-glow'
+                  ? 'bg-amber-50/60 border-2 border-dashed border-amber-400 drop-zone-glow pointer-events-auto'
                   : 'bg-transparent'
                 }
               `}
@@ -273,6 +272,13 @@ export function PromptForm({ artworkSize = 70, onArtworkStateChange }: PromptFor
               onChange={handleFileInput}
               className="hidden"
             />
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              className="text-xs text-stone-400 hover:text-stone-600 transition-colors mt-1"
+            >
+              or upload an image
+            </button>
           </>
         )}
       </div>
